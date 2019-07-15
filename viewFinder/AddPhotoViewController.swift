@@ -49,6 +49,24 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         imagePicker.dismiss(animated: true, completion: nil) //makes image picker slide away from the top
     }
     
+    @IBAction func savePhotoTapped(_ sender: UIButton) {
+        
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext { //get the core data context
+            let photoToSave = Photos(entity: Photos.entity(), insertInto: context) //creating instance of Photo Entity from Core Data, and telling it to use the Photos entity and that I want the context; storing all info in constant called photoToSave
+            photoToSave.captionInput = caption.text // stores caption
+            
+            if let userImage = newImage.image { //unwrapping to make sure we have the image
+                if let userImageData = userImage.pngData() { //converting user image data into format that computer can read
+                    photoToSave.photo = userImageData
+                }
+            }
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

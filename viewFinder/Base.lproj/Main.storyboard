@@ -13,7 +13,7 @@
         <!--ViewFinder-->
         <scene sceneID="ZHU-uI-gj2">
             <objects>
-                <tableViewController title="ViewFinder" id="mQN-Mh-wzs" sceneMemberID="viewController">
+                <tableViewController title="ViewFinder" id="mQN-Mh-wzs" customClass="PhotoTableViewController" customModule="viewFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="ViewFinder" id="UUt-fU-Nbn">
                         <barButtonItem key="backBarButtonItem" title="Back" id="nc4-8S-7az"/>
@@ -27,7 +27,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyX-X2-uCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889.85507246376824" y="136.95652173913044"/>
+            <point key="canvasLocation" x="741" y="137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2F3-21-d7o">
@@ -73,6 +73,15 @@
                                     <action selector="savedPhotosAlbum:" destination="8qn-Jw-cnG" eventType="touchUpInside" id="h8a-3Z-zVc"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAu-iM-ftU">
+                                <rect key="frame" x="287" y="394" width="83" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Photos Library"/>
+                                <connections>
+                                    <action selector="albumTapped:" destination="Jdn-aG-lo6" eventType="touchUpInside" id="lpy-wi-Yeq"/>
+                                    <action selector="photoLibraryTapped:" destination="8qn-Jw-cnG" eventType="touchUpInside" id="Jaw-Vm-nOM"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wky-fe-Nkm">
                                 <rect key="frame" x="87" y="142" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -85,17 +94,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKI-B3-bmV">
-                                <rect key="frame" x="183" y="498" width="34" height="30"/>
+                                <rect key="frame" x="179" y="493" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAu-iM-ftU">
-                                <rect key="frame" x="287" y="394" width="83" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Photos Library"/>
                                 <connections>
-                                    <action selector="albumTapped:" destination="Jdn-aG-lo6" eventType="touchUpInside" id="lpy-wi-Yeq"/>
-                                    <action selector="photoLibraryTapped:" destination="8qn-Jw-cnG" eventType="touchUpInside" id="Jaw-Vm-nOM"/>
+                                    <action selector="savePhotoTapped:" destination="8qn-Jw-cnG" eventType="touchUpInside" id="ui8-RL-vW7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -111,7 +114,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1FU-rU-brN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jdn-aG-lo6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1650.7246376811595" y="136.95652173913044"/>
+            <point key="canvasLocation" x="1495.6521739130435" y="136.95652173913044"/>
         </scene>
     </scenes>
 </document>
