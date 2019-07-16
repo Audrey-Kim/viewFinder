@@ -76,4 +76,22 @@ class PhotoTableViewController: UITableViewController {
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext { //get the context, since we want to delete this from Core Data
+                let photoToDelete = photos[indexPath.row] //select row that was swiped
+                context.delete(photoToDelete) //deletes record of photo and its caption from Core Data database
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+                getPhotos()
+            }
+        }
+    }
+    
 }
