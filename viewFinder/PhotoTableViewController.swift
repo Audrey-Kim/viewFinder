@@ -34,7 +34,7 @@ class PhotoTableViewController: UITableViewController {
     }
     
     //calling getPhotos()
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         getPhotos()
     }
 
@@ -51,7 +51,11 @@ class PhotoTableViewController: UITableViewController {
         let cellPhoto = photos[indexPath.row]
         cell.textLabel?.text = cellPhoto.captionInput
         
-        if let cellPhotoImageData = cellPhoto.
+        if let cellPhotoImageData = cellPhoto.photo {
+            if let cellPhotoImage = UIImage(data: cellPhotoImageData) {
+                cell.imageView?.image = cellPhotoImage
+            }
+        }
         
         // Configure the cell...
 
